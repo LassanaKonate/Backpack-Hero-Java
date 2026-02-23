@@ -1,58 +1,45 @@
-BACKPACK HERO : Manuel de l’utilisateur
-1. Comment lancer le jeu
-• Ouvre un terminal (l'invite de commande) dans le dossier du jeu.
-• Tape cette commande : java -jar BackpackHero.jar
-• La fenêtre du jeu s'ouvre. C'est parti !
-2. Explorer le Donjon
-Tu diriges ton héros sur une grille. Ton but est de trouver la sortie de
-chaque étage.
-• Se déplacer : Utilise les touches Z, Q, S, D de ton clavier pour
-marcher dans le donjon.
-• À la souris : Tu peux aussi cliquer sur une salle voisine de ton héros
-pour t'y rendre.
-• Les salles :
-Salles de Combat (Enemy Room) : Elles contiennent des monstres.
-Dès que tu y entres, le mode combat s'active.
-Salles au Trésor (Treasure Room) : Tu y trouveras des coffres.
-Le Marchand (Merchant Room) : Reconnaissable à son icône de
-boutique, c'est ici que tu échanges ton or contre de l'équipement.
-Le Guérisseur (Healer Room) : Une salle indispensable pour
-reprendre des forces et soigner tes blessures contre quelques
-pièces.
-La Sortie (Exit Room) : Une fois trouvée, elle te permet de
-descendre à l'étage suivant. Ton but est de l'atteindre à chaque
-niveau.
-Salles Spéciales (Event & Gate) : Parfois, tu croiseras des
-événements imprévus ou des portails magiques qui changeront le
-cours de ton aventure.
-3. Organiser ton Sac à Dos
-Le secret pour gagner, c'est le rangement ! Ton sac est affiché à droite de
-l'écran.
-Poser un objet : Quand tu trouves un trésor, clique sur une case vide de
-ton sac pour le poser.
-Tourner les objets : Si un objet ne rentre pas, appuie sur R pour le faire
-pivoter.
-Valider : Appuie sur la touche A pour accepter un objet ou confirmer un
-choix.
-Tout ranger : Ton sac est en désordre ? Appuie sur O. Cela vide ton sac et
-te permet de replacer chaque objet un par un.
-Coup d'œil : Appuie sur I pour voir l'état de ton sac dans la console de
-texte
-4. Boutique et Soins
-Pendant ton voyage, tu trouveras des salles spéciales :
-Le Marchand : Clique sur les objets du magasin pour les acheter avec ton
-Or. Tu peux aussi cliquer sur tes propres objets pour les lui vendre.
-Le Guérisseur : Si tes points de vie (PV) sont bas, va voir le Guérisseur.
-Donne-lui quelques pièces pour retrouver toute ta forme.
-Quitter un menu : Utilise la touche ECHAP (ESC) ou le bouton "Quitter"
-pour revenir à l'exploration.
-5. Le Combat
-Quand tu entres dans une salle avec un ennemi, le combat commence !
-Attaquer : Clique sur une arme dans ton sac pour frapper les monstres.
-Cibler : Clique sur un ennemi pour voir son nom et sa vie.
-Fin du tour : Quand tu n'as plus d'énergie, clique sur le gros bouton
-rouge "Fin de Tour".
-6. Le Hall of Fame
-À la fin de la partie, ton score est calculé. Si tu as été très bon, ton nom
-s'affichera dans le Hall of Fame (le tableau des records) que tout le
-monde peut voir !
+# Backpack Hero - Jeu d'aventure en Java
+
+Ce projet a été réalisé dans le cadre de la Licence 3 Informatique à l'**Université Gustave Eiffel**. Il s'agit d'un jeu d'aventure où le joueur explore des donjons et combat des monstres en gérant l'organisation de son sac à dos.
+
+## 🛠️ Caractéristiques Techniques
+* **Architecture :** Utilisation du modèle **MVC** pour structurer le projet.
+* **Interface Graphique :** Réalisée avec la librairie **Zen**.
+* **Moteur de Combat :** Gestion du tour par tour, de l'énergie et des effets de statut.
+* **Génération de Niveaux :** Système automatique garantissant l'accessibilité des salles.
+* **Persistance :** Mise en place d'un **Hall of Fame** avec sauvegarde des trois meilleurs scores.
+
+---
+
+## 📖 Manuel de l'Utilisateur
+
+### 1. Comment lancer le jeu
+1. Ouvrez un terminal dans le dossier du jeu.
+2. Tapez la commande suivante : `java -jar BackpackHero.jar`
+3. La fenêtre du jeu s'ouvre automatiquement.
+
+### 2. Explorer le Donjon
+Dirigez votre héros sur une grille pour trouver la sortie de chaque étage.
+* **Se déplacer :** Utilisez les touches **Z, Q, S, D** ou cliquez directement sur une salle voisine à la souris.
+* **Types de salles :**
+    * **Combat :** Contient des monstres.
+    * **Trésor :** Contient des coffres d'équipement.
+    * **Marchand :** Pour échanger votre or contre du matériel.
+    * **Guérisseur :** Pour soigner vos blessures contre quelques pièces.
+    * **Sortie :** Indispensable pour passer au niveau suivant.
+
+### 3. Organiser ton Sac à Dos
+Le rangement est la clé du succès !
+* **Poser un objet :** Cliquez sur une case vide du sac.
+* **Rotation :** Appuyez sur **R** pour faire pivoter un objet.
+* **Valider :** Appuyez sur **A** pour confirmer un choix.
+* **Tout ranger :** Appuyez sur **O** pour vider le sac et tout replacer.
+* **Statistiques :** Appuyez sur **I** pour voir l'état du sac dans la console.
+
+### 4. Le Combat
+* **Attaquer :** Cliquez sur une arme dans votre sac.
+* **Cibler :** Cliquez sur un ennemi pour voir ses points de vie.
+* **Fin de tour :** Cliquez sur le bouton rouge "Fin de Tour" quand votre énergie est épuisée.
+
+### 5. Records (Hall of Fame)
+À la fin de la partie, si votre score est suffisant, vous intégrerez le tableau des records[cite: 43].
