@@ -42,4 +42,4 @@ Le rangement est la clé du succès !
 * **Fin de tour :** Cliquez sur le bouton rouge "Fin de Tour" quand votre énergie est épuisée.
 
 ### 5. Records (Hall of Fame)
-À la fin de la partie, si votre score est suffisant, vous intégrerez le tableau des records[cite: 43].
+À la fin de la partie, si votre score est suffisant, vous intégrerez le tableau des records.
