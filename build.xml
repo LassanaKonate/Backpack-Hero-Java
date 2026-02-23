@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BackpackHero" default="jar" basedir=".">
+    <property name="src.dir" value="src"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="classes.dir" value="classes"/>
+    <property name="doc.dir" value="docs/doc"/>
+    <property name="jar.file" value="BackpackHero.jar"/>
+    <property name="main.class" value="fr.uge.backpackhero.Main"/>
+
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="${classes.dir}"/>
+        <delete dir="${doc.dir}"/>
+        <delete file="${jar.file}"/>
+        <mkdir dir="${classes.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false" debug="true" encoding="UTF-8">
+            <classpath refid="classpath"/>
+        </javac>
+	<copy todir="${classes.dir}">
+            <fileset dir="resources" includes="**/*.png"/>
+    	</copy>
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar destfile="${jar.file}" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="fr.uge.backpackhero.Main"/>
+                <attribute name="Class-Path" value="lib/zen5.jar"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="javadoc">
+        <mkdir dir="${doc.dir}"/>
+        <javadoc sourcepath="${src.dir}" destdir="${doc.dir}" locale="en_US" encoding="UTF-8" docencoding="UTF-8" charset="UTF-8">
+            <classpath refid="classpath"/>
+        </javadoc>
+    </target>
+</project>

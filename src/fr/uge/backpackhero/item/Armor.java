@@ -1,0 +1,94 @@
+package fr.uge.backpackhero.item;
+
+import java.util.List;
+import java.util.Objects;
+
+import fr.uge.backpackhero.entites.Ennemi;
+import fr.uge.backpackhero.entites.Heros;
+
+/**
+ * Represents a piece of armor that the hero can equip. Armor provides passive
+ * protection during combat.
+ *
+ * @param name   The name of the armor.
+ * @param pos    The list of relative positions describing the shape of the item
+ *               in the backpack.
+ * @param rarity The rarity level of the armor.
+ * @param stats  The amount of protection the armor provides each turn.
+ * @param price  The buying and selling price of the armor.
+ */
+public record Armor(String name, List<Position> pos, Rarity rarity, int stats, int price) implements Item {
+
+  /**
+   * Compact constructor with validation.
+   *
+   * @throws NullPointerException     if name, rarity, or pos is null.
+   * @throws IllegalArgumentException if stats or price is negative.
+   */
+  public Armor {
+    Objects.requireNonNull(name);
+    Objects.requireNonNull(rarity);
+    Objects.requireNonNull(pos);
+
+    if (stats < 0 || price < 0) {
+      throw new IllegalArgumentException("stats and price cant be negative");
+    }
+  }
+
+  /**
+   * Returns a human-readable description of the armor.
+   *
+   * @return A string describing the armor and its gameplay effect.
+   */
+  public String details() {
+    return "Armor " + name + ", " + rarity.toString() + ", adds " + stats
+        + " protection each turn, can be sold or bought to a merchant for " + price;
+  }
+
+  /**
+   * Returns a compact identifier for display purposes.
+   *
+   * @return A short code representing this armor.
+   *
+   * @throws IllegalArgumentException if no short form is defined for this armor
+   *                                  name.
+   */
+  @Override
+  public String toString() {
+    return switch (name) {
+    case "Leather Cap" -> "LC";
+    default -> throw new IllegalArgumentException("Unknown arrow type: " + name);
+    };
+  }
+
+  /**
+   * Defines the active usage of the item during combat.
+   *
+   * @param heros    the hero attempting to use the item.
+   * @param target   the enemy targeted by the item's effect.
+   * @param backpack the backpack containing the item, used for layout-based
+   *                 bonuses.
+   * @param instance the specific instance of the item being used.
+   * @return false
+   * @throws NullPointerException if any of the provided arguments are
+   *                              {@code null}.
+   */
+  @Override
+  public boolean use(Heros heros, Ennemi target, BackPack backpack, ItemInstance instance) {
+    Objects.requireNonNull(backpack);
+    Objects.requireNonNull(instance);
+    Objects.requireNonNull(heros);
+    Objects.requireNonNull(target);
+    return false;
+  }
+
+  @Override
+  public boolean isArmor() {
+    return true;
+  }
+
+  @Override
+  public boolean isCurse() {
+    return false;
+  }
+}
